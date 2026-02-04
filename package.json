@@ -1,0 +1,12 @@
+{
+  "name": "daniel-gasser-fixer",
+  "version": "1.0.0",
+  "description": "The Fixer - Daniel Gasser Portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
