@@ -796,12 +796,13 @@
         Quand ça doit absolument marcher, appele Daniel.
       </p>
       <p>
-        © 2025 Daniel Gasser. Pas de bureaucratie. Pas de baratin. Juste des
-        résultats.
+        © <span id="year"></span> Daniel Gasser. Pas de bureaucratie. Pas de
+        baratin. Juste des résultats.
       </p>
     </footer>
 
     <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
       // Smooth reveal on scroll
       const observerOptions = {
         threshold: 0.1,

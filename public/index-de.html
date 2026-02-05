@@ -797,11 +797,13 @@
         Wenn es unbedingt funktionieren muss, ruf Daniel.
       </p>
       <p>
-        © 2025 Daniel Gasser. Keine Bürokratie. Kein Bullshit. Nur Resultate.
+        © <span id="year"></span> Daniel Gasser. Keine Bürokratie. Kein
+        Bullshit. Nur Resultate.
       </p>
     </footer>
 
     <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
       // Smooth reveal on scroll
       const observerOptions = {
         threshold: 0.1,
