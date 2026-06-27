@@ -1,0 +1,21 @@
+{
+  "name": "Daniel Gasser | The Fixer",
+  "short_name": "The Fixer",
+  "icons": [
+    {
+      "src": "/imgs/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/imgs/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#c53030",
+  "background_color": "#010409",
+  "display": "standalone"
+}

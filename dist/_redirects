@@ -1,0 +1,12 @@
+# Cloudflare Pages routing — reproduces the old Express server.js
+# Express did: /->index.html, /de->index-de.html, /fr->index-fr.html, *->index.html
+#
+# Pretty language routes (explicit 200 = serve, no redirect).
+# (Cloudflare Pages also serves /de/index.html for /de automatically; these make it explicit.)
+/de      /de/index.html      200
+/fr      /fr/index.html      200
+#
+# Wildcard fallback to the English page (replicates Express app.get('*')).
+# Real static assets always take precedence over _redirects, so this only
+# catches otherwise-unmatched paths.
+/*       /index.html         200

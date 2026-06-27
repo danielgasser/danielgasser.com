@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniel Gasser | Le Réparateur</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/imgs/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/imgs/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/imgs/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/imgs/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/imgs/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-C2392SJZGD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-C2392SJZGD");
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --red: #c53030;
+        --dark-red: #9b2c2c;
+        --navy: #1a365d;
+        --dark: #0d1117;
+        --darker: #010409;
+        --gray: #8b949e;
+        --light: #f0f6fc;
+        --gold: #d4af37;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--darker);
+        color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Language Switcher */
+      .lang-switcher {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1000;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .lang-switcher a {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .lang-switcher a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--light);
+      }
+
+      .lang-switcher a.active {
+        background: var(--red);
+        color: var(--light);
+        border-color: var(--red);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        background:
+          radial-gradient(
+            ellipse at top,
+            rgba(197, 48, 48, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at bottom,
+            rgba(26, 54, 93, 0.2) 0%,
+            transparent 50%
+          ),
+          var(--darker);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+      }
+
+      .tagline {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        color: var(--red);
+        letter-spacing: 4px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(4rem, 15vw, 12rem);
+        line-height: 0.9;
+        letter-spacing: -2px;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 8vw, 5rem);
+        color: var(--red);
+        margin-bottom: 2rem;
+        letter-spacing: 2px;
+      }
+
+      .hero-description {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto 3rem;
+      }
+
+      .hero-description strong {
+        color: var(--light);
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1.25rem 3rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        color: var(--light);
+        background: var(--red);
+        border: none;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        background: var(--dark-red);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 40px rgba(197, 48, 48, 0.4);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+
+      .scroll-indicator svg {
+        width: 30px;
+        height: 30px;
+        color: var(--gray);
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+
+      /* Quote Section */
+      .quote-section {
+        padding: 6rem 2rem;
+        text-align: center;
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .quote {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.5rem, 5vw, 3rem);
+        color: var(--light);
+        max-width: 800px;
+        margin: 0 auto;
+        letter-spacing: 1px;
+      }
+
+      .quote span {
+        color: var(--red);
+      }
+
+      /* What I Fix Section */
+      .services {
+        padding: 8rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: var(--light);
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--gray);
+        font-size: 1.125rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .service-card {
+        background: var(--dark);
+        padding: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background: var(--red);
+        transition: height 0.3s ease;
+      }
+
+      .service-card:hover::before {
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(197, 48, 48, 0.3);
+      }
+
+      .service-card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.75rem;
+        color: var(--red);
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .service-card p {
+        color: var(--gray);
+      }
+
+      /* The Method Section */
+      .method {
+        padding: 8rem 2rem;
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .method-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .method-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .method-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-left: 3px solid var(--red);
+      }
+
+      .step-number {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3rem;
+        color: var(--red);
+        line-height: 1;
+      }
+
+      .step-content h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        color: var(--light);
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+      }
+
+      .step-content p {
+        color: var(--gray);
+      }
+
+      /* Stats Section */
+      .stats {
+        padding: 6rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--red) 0%,
+          var(--dark-red) 100%
+        );
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .stat-item h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        color: var(--light);
+        line-height: 1;
+      }
+
+      .stat-item p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 0.5rem;
+      }
+
+      /* About Section */
+      .about {
+        padding: 8rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        display: grid;
+        gap: 3rem;
+      }
+
+      .about-text p {
+        color: var(--gray);
+        font-size: 1.125rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text p:first-of-type::first-letter {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        float: left;
+        line-height: 1;
+        padding-right: 1rem;
+        color: var(--red);
+      }
+
+      .languages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .language-tag {
+        padding: 0.5rem 1.5rem;
+        background: rgba(197, 48, 48, 0.1);
+        border: 1px solid var(--red);
+        color: var(--red);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 8rem 2rem;
+        text-align: center;
+        background: var(--dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .contact h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 6vw, 4rem);
+        color: var(--light);
+        margin-bottom: 1rem;
+      }
+
+      .contact p {
+        color: var(--gray);
+        font-size: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-email {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: var(--red);
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: color 0.3s ease;
+      }
+
+      .contact-email:hover {
+        color: var(--light);
+      }
+
+      /* Footer */
+      footer {
+        padding: 3rem 2rem;
+        text-align: center;
+        background: var(--darker);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      footer p {
+        color: var(--gray);
+        font-size: 0.875rem;
+      }
+
+      footer .tagline-footer {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.25rem;
+        color: var(--red);
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .method-step {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .lang-switcher {
+          top: 1rem;
+          right: 1rem;
+        }
+
+        .lang-switcher a {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+      <a href="/">EN</a>
+      <a href="/de">DE</a>
+      <a href="/fr" class="active">FR</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tagline">Quand ça va mal, on appelle</p>
+        <h1>DANIEL GASSER</h1>
+        <h2>LE RÉPARATEUR</h2>
+        <p class="hero-description">
+          <strong>Plus de 20 ans</strong> à transformer le chaos en ordre.<br />
+          Pas d'excuses. Juste des résultats.
+        </p>
+        <a href="#contact" class="cta-button">Un problème? Parlons-en</a>
+      </div>
+      <div class="scroll-indicator">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+      <p class="quote">
+        "Tu ne m'engages pas parce que tout va bien.<br />
+        Tu m'engages parce que ce <span>n'est pas</span> le cas."
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="section-header">
+        <h2>Ce que je répare</h2>
+        <p>Si c'est cassé, je le fais marcher. Peu importe l'industrie.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>🏗️ Chaos de Chantier</h3>
+          <p>
+            Sous-traitants absents? Planning explosé? Budget hors contrôle? Chef
+            de chantier parti? J'ai tout vu. J'ai tout réparé.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>💻 Catastrophes IT</h3>
+          <p>
+            Migrations ratées, bases de données corrompues, pannes réseau,
+            prestataires disparus. 20+ ans à nettoyer les erreurs des autres.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>🔥 Incendies Opérationnels</h3>
+          <p>
+            Quand tes processus craquent, que ton équipe implose ou que tes
+            systèmes tombent - je suis celui qui entre et fait remarcher les
+            choses.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>📊 Sauvetage de Projets</h3>
+          <p>
+            Délais dépassés? Parties prenantes en panique? Je trouve le vrai
+            problème, stoppe l'hémorragie et remets tout sur les rails.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>👥 Redressement d'Équipes</h3>
+          <p>
+            Équipes dysfonctionnelles, ruptures de communication, vide de
+            leadership. Je rétablis l'ordre et construis des systèmes durables.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>🌐 Effondrements Digitaux</h3>
+          <p>
+            Site web en panne? Tunnel cassé? Analytics qui mentent? Je trouve la
+            vérité et répare ce qui est vraiment cassé.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method Section -->
+    <section class="method" id="method">
+      <div class="method-container">
+        <div class="section-header">
+          <h2>La Méthode Réparateur</h2>
+          <p>Pas de baratin. Pas d'excuses. Juste des résultats.</p>
+        </div>
+        <div class="method-steps">
+          <div class="method-step">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <h3>ANALYSER</h3>
+              <p>
+                J'arrive, je me tais et j'observe. Je trouve le VRAI problème -
+                pas ce que tout le monde croit. La plupart des "incendies" sont
+                des symptômes, pas des causes.
+              </p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <h3>STABILISER</h3>
+              <p>
+                Arrêter l'hémorragie. Prévenir d'autres dégâts. Restaurer les
+                fonctions de base. Trier ce qui compte maintenant vs ce qui peut
+                attendre.
+              </p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <h3>RÉSOUDRE</h3>
+              <p>
+                Réparer la cause racine, pas juste les symptômes. Des solutions
+                permanentes, pas des pansements. Je ne fais pas de provisoire.
+              </p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="step-number">04</span>
+            <div class="step-content">
+              <h3>PRÉVENIR</h3>
+              <p>
+                Construire des systèmes et processus qui empêchent que ça se
+                reproduise. Si je dois revenir pour le même problème, j'ai
+                échoué.
+              </p>
+            </div>
+          </div>
+          <div class="method-step">
+            <span class="step-number">05</span>
+            <div class="step-content">
+              <h3>TRANSFÉRER</h3>
+              <p>
+                Tout documenter. Former ton équipe. Me rendre inutile.
+                L'objectif: que tu n'ayes plus jamais besoin de moi - pour CE
+                problème.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>20+</h3>
+          <p>Ans Indépendant</p>
+        </div>
+        <div class="stat-item">
+          <h3>0</h3>
+          <p>Jobs en Entreprise</p>
+        </div>
+        <div class="stat-item">
+          <h3>∞</h3>
+          <p>Problèmes Résolus</p>
+        </div>
+        <div class="stat-item">
+          <h3>3</h3>
+          <p>Langues</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="section-header">
+        <h2>Qui est ce type?</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Il y a vingt ans, j'ai décidé que la vie en entreprise n'était pas
+            pour moi. Pas de diplôme prestigieux, pas de filet de sécurité,
+            juste une conviction simple: si c'est cassé, je peux le réparer. Il
+            s'avère que c'est une compétence rare.
+          </p>
+          <p>
+            J'ai construit des systèmes IT pour des prestataires de santé, sauvé
+            des projets de construction du désastre, créé des ventures digitales
+            à partir de zéro, et aidé des dirigeants à naviguer des situations
+            impossibles. Le fil rouge? Quelqu'un avait un problème. Je l'ai fait
+            disparaître.
+          </p>
+          <p>
+            Basé en Suisse. Disponible mondialement. Couramment en
+            résolution-de-problèmes.
+          </p>
+          <div class="languages">
+            <span class="language-tag">🇩🇪 Allemand (Natif)</span>
+            <span class="language-tag">🇬🇧 Anglais (Courant)</span>
+            <span class="language-tag">🇫🇷 Français (Professionnel)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <h2>Un incendie à éteindre?</h2>
+      <p>
+        Ne m'envoyes pas une description de poste. Dis-moi ce qui est cassé.
+      </p>
+      <a href="tel:+41791046367" class="contact-email"
+        ><svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M4.26534 3.25728C5.54121 1.98143 7.69866 2.37266 8.4453 4.01527L10.0666 7.58207C10.4662 8.46115 10.3393 9.47941 9.7603 10.2298C9.57069 10.4755 9.33228 10.6266 9.14342 10.7234L6.34328 12.1589C7.02276 13.246 7.83521 14.2739 8.78072 15.2194C9.72626 16.1649 10.7541 16.9774 11.8412 17.6569L13.2768 14.8567C13.3736 14.6679 13.5247 14.4295 13.7704 14.2399C14.5208 13.6608 15.539 13.534 16.4181 13.9336L19.9849 15.5549C21.6275 16.3015 22.0187 18.459 20.7429 19.7348L19.6747 20.803C19.1484 21.3293 18.3886 21.603 17.6192 21.4643C13.993 20.8106 10.5219 19.0819 7.72006 16.28C4.91826 13.4782 3.18949 10.0071 2.53579 6.38098C2.39708 5.61151 2.6708 4.85172 3.19715 4.32541C3.19715 4.32541 3.19715 4.32541 3.19715 4.32541M4.26534 3.25728C4.26533 3.25729 4.26534 3.25728 4.26534 3.25728V3.25728ZM13.148 18.3959C14.656 19.1633 16.2534 19.694 17.8853 19.9881C18.1347 20.0331 18.4082 19.9481 18.614 19.7424L19.6822 18.6742C20.2175 18.1389 20.0534 17.2337 19.3642 16.9204L15.7974 15.2991C15.4288 15.1316 15.0014 15.1846 14.6867 15.4274C14.6868 15.4274 14.6869 15.4273 14.6867 15.4274C14.6855 15.4284 14.6781 15.4349 14.6657 15.4513C14.6513 15.4704 14.6332 15.499 14.6116 15.5411L13.148 18.3959ZM5.60427 10.8522L8.4591 9.38858C8.50118 9.367 8.52978 9.34884 8.54888 9.33445C8.56744 9.32046 8.57309 9.31298 8.57276 9.31341C8.81555 8.99879 8.86856 8.57137 8.70102 8.20278L7.07975 4.63597C6.76648 3.94679 5.86129 3.78265 5.32598 4.31796L4.25778 5.3861C4.05198 5.59188 3.96702 5.86538 4.01199 6.11487C4.30617 7.74671 4.83685 9.34411 5.60427 10.8522Z"
+            fill="currentColor"
+          />
+          <path
+            d="M3.19715 4.32541L4.26534 3.25728L3.19715 4.32541Z"
+            fill="currentColor"
+          />
+        </svg>
+        PARLONS-EN</a
+      ><br />
+      <a href="mailto:fixer@daniel-gasser.com" class="contact-email"
+        ><svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M22 6.25649V17.25C22 18.4926 20.9926 19.5 19.75 19.5H4.25C3.00736 19.5 2 18.4926 2 17.25V6.23398C2 6.22372 2.00021 6.2135 2.00061 6.20334C2.01781 5.25972 2.78812 4.5 3.73592 4.5H20.2644C21.2229 4.5 22 5.27697 22.0001 6.23549C22.0001 6.24249 22.0001 6.24949 22 6.25649ZM3.5 8.187V17.25C3.5 17.6642 3.83579 18 4.25 18H19.75C20.1642 18 20.5 17.6642 20.5 17.25V8.18747L13.2873 13.2171C12.5141 13.7563 11.4866 13.7563 10.7134 13.2171L3.5 8.187ZM20.5 6.2286C20.4963 6.10171 20.3922 6 20.2644 6H3.73592C3.60577 6 3.50028 6.10553 3.50032 6.23568C3.50035 6.31268 3.538 6.38481 3.60116 6.42885L11.5713 11.9867C11.8291 12.1664 12.1716 12.1664 12.4293 11.9867L20.3992 6.42905C20.4604 6.38643 20.4976 6.31753 20.5 6.24336V6.23398L20.5 6.2286Z"
+            fill="currentColor"
+          />
+        </svg>
+
+        fixer@danielgasser.com</a
+      >
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p class="tagline-footer">
+        Quand ça doit absolument marcher, appele Daniel.
+      </p>
+      <p>
+        © <span id="year"></span> Daniel Gasser. Pas de bureaucratie. Pas de
+        baratin. Juste des résultats.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+      // Smooth reveal on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".service-card, .method-step, .stat-item")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Parallax effect on hero
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero-content");
+        if (hero && scrolled < window.innerHeight) {
+          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+          hero.style.opacity = 1 - scrolled / window.innerHeight;
+        }
+      });
+    </script>
+  </body>
+</html>
