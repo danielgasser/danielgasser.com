@@ -7,6 +7,8 @@ Pure static rebuild of the old Node/Express "Fixer" site. **No runtime required*
 - `de/index.html` — German (`/de`)
 - `fr/index.html` — French (`/fr`)
 - `imgs/favicon/*` — favicons + web manifest
+- `sitemap.xml` — the three language URLs with hreflang alternates (submit at Google Search Console)
+- `robots.txt` — allows all crawlers and points to the sitemap
 - `_redirects` — Cloudflare Pages routing (reproduces the old Express routes)
 
 ## Cloudflare Pages settings
