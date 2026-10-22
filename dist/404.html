@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Daniel Gasser</title>
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/imgs/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/imgs/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/imgs/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/imgs/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/imgs/favicon/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-C2392SJZGD"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-C2392SJZGD");
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --red: #c53030;
+        --dark-red: #9b2c2c;
+        --navy: #1a365d;
+        --dark: #0d1117;
+        --darker: #010409;
+        --gray: #8b949e;
+        --light: #f0f6fc;
+        --gold: #d4af37;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--darker);
+        color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Language Switcher */
+      .lang-switcher {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1000;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .lang-switcher a {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+
+      .lang-switcher a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--light);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        background:
+          radial-gradient(
+            ellipse at top,
+            rgba(197, 48, 48, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at bottom,
+            rgba(26, 54, 93, 0.2) 0%,
+            transparent 50%
+          ),
+          var(--darker);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+      }
+
+      .tagline {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        color: var(--red);
+        letter-spacing: 4px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(4rem, 15vw, 12rem);
+        line-height: 0.9;
+        letter-spacing: -2px;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--light) 0%, var(--gray) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 8vw, 5rem);
+        color: var(--red);
+        margin-bottom: 2rem;
+        letter-spacing: 2px;
+      }
+
+      .hero-description {
+        font-size: 1.25rem;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto 3rem;
+      }
+
+      .hero-description p + p {
+        margin-top: 0.5rem;
+      }
+
+      .hero-description a {
+        color: var(--light);
+        text-decoration: underline;
+        text-decoration-color: var(--red);
+        text-underline-offset: 3px;
+        transition: color 0.3s ease;
+      }
+
+      .hero-description a:hover {
+        color: var(--red);
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1.25rem 3rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        color: var(--light);
+        background: var(--red);
+        border: none;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: var(--dark-red);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 40px rgba(197, 48, 48, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+      <a href="/">EN</a>
+      <a href="/de/">DE</a>
+      <a href="/fr/">FR</a>
+    </div>
+
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tagline">Error 404</p>
+        <h1>NOTHING HERE</h1>
+        <h2>THIS ONE I CAN'T FIX</h2>
+        <div class="hero-description">
+          <p>The page you're looking for doesn't exist or has moved.</p>
+          <p lang="de">
+            Diese Seite gibt es nicht.
+            <a href="/de/">Zur deutschen Startseite</a>
+          </p>
+          <p lang="fr">
+            Cette page n'existe pas.
+            <a href="/fr/">Vers la page d'accueil française</a>
+          </p>
+        </div>
+        <a href="/" class="cta-button">Back to Start</a>
+      </div>
+    </section>
+  </body>
+</html>

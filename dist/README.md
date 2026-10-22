@@ -9,15 +9,17 @@ Pure static rebuild of the old Node/Express "Fixer" site. **No runtime required*
 - `imgs/favicon/*` — favicons + web manifest
 - `sitemap.xml` — the three language URLs with hreflang alternates (submit at Google Search Console)
 - `robots.txt` — allows all crawlers and points to the sitemap
-- `_redirects` — Cloudflare Pages routing (reproduces the old Express routes)
+- `404.html` — custom not-found page (Cloudflare Pages serves it with status 404 for unknown paths)
+- `_redirects` — Cloudflare Pages routing (language routes + legacy `.htm` 301s)
 
 ## Cloudflare Pages settings
 - **Build command:** _(none — static)_
 - **Build output directory:** `dist`
 - **Framework preset:** None
 
-`_redirects` reproduces the old `server.js`: `/de` and `/fr` serve their pages (200, no redirect),
-and any unknown path falls back to the English page (200), exactly like `app.get('*')`.
+`_redirects` serves `/de` and `/fr` directly (200) and 301s the legacy `/index.htm` paths to their
+canonical URLs. Unknown paths return a real 404 via `404.html`. (The old Express `app.get('*')`
+fallback that served the English page for every unknown URL was dropped: it produced soft 404s.)
 
 ## Parity with the old Node site
 - Content/copy/SEO (titles, `lang`, favicons) 1:1 across EN/DE/FR.

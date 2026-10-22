@@ -12,7 +12,7 @@
 /de/index.htm    /de/    301
 /fr/index.htm    /fr/    301
 #
-# Wildcard fallback to the English page (replicates Express app.get('*')).
-# Real static assets always take precedence over _redirects, so this only
-# catches otherwise-unmatched paths.
-/*       /index.html         200
+# No wildcard fallback: unknown paths return a real 404 via /404.html
+# (Cloudflare Pages serves it automatically with status 404). The old
+# Express app.get('*') behaviour made every unknown URL a 200 duplicate
+# of the English page, which Google reports as soft 404s.
