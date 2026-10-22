@@ -6,6 +6,12 @@
 /de      /de/index.html      200
 /fr      /fr/index.html      200
 #
+# Legacy .htm entry points: permanent redirect to the canonical URLs.
+# (Cloudflare Pages already 308s the .html variants on its own.)
+/index.htm       /       301
+/de/index.htm    /de/    301
+/fr/index.htm    /fr/    301
+#
 # Wildcard fallback to the English page (replicates Express app.get('*')).
 # Real static assets always take precedence over _redirects, so this only
 # catches otherwise-unmatched paths.
